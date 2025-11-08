@@ -224,41 +224,43 @@ export default function MarketCard({ marketName, onSwipeComplete, hasSwipedThisR
             priority
           />
           {/* Verified Badge Overlay - Above white tab */}
-          <div className="absolute bottom-[14rem] left-4 sm:left-6 right-4 sm:right-6 flex flex-col gap-3 pointer-events-none">
+          <div className="absolute bottom-[14rem] left-3 sm:left-4 md:left-6 right-3 sm:right-4 md:right-6 flex flex-col gap-2 sm:gap-3 pointer-events-none">
             <VerifiedBadge />
-            <div className="flex flex-col gap-1">
-              <h2 className="text-white text-3xl sm:text-4xl font-bold">Suhas, 23</h2>
-              <div className="flex items-center gap-2">
+            <div className="flex flex-col gap-0.5 sm:gap-1">
+              <h2 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">Suhas, 23</h2>
+              <div className="flex items-center gap-1.5 sm:gap-2">
                 <svg
-                  width="24"
-                  height="24"
+                  width="20"
+                  height="20"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="white"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  className="sm:w-6 sm:h-6"
                 >
                   <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
                   <path d="M6 12v5c3 3 9 3 12 0v-5" />
                 </svg>
-                <p className="text-white text-lg sm:text-xl font-medium">HITK</p>
+                <p className="text-white text-base sm:text-lg md:text-xl font-medium">HITK</p>
               </div>
             </div>
           </div>
 
           {/* DM Button - Aligned with name */}
-          <div className="absolute bottom-[14.5rem] right-4 sm:right-6 pointer-events-auto">
-            <button className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-yellow-400 flex items-center justify-center shadow-lg hover:bg-yellow-500 transition">
+          <div className="absolute bottom-[14.5rem] right-3 sm:right-4 md:right-6 pointer-events-auto">
+            <button className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-yellow-400 flex items-center justify-center shadow-lg hover:bg-yellow-500 transition">
               <svg
-                width="28"
-                height="28"
+                width="24"
+                height="24"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="black"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                className="sm:w-7 sm:h-7"
               >
                 <rect x="2" y="4" width="20" height="16" rx="2" />
                 <path d="m2 7 10 6 10-6" />
@@ -267,69 +269,69 @@ export default function MarketCard({ marketName, onSwipeComplete, hasSwipedThisR
           </div>
 
           {/* Things we can talk about card */}
-          <div className="absolute bottom-4 left-2 right-2 sm:left-3 sm:right-3 bg-white rounded-2xl pt-4 pb-4 px-4 shadow-lg pointer-events-auto flex flex-col h-44">
-            <h3 className="text-gray-700 text-sm font-medium mb-3">Things I have worked on</h3>
+          <div className="absolute bottom-4 left-2 right-2 sm:left-3 sm:right-3 bg-white rounded-xl sm:rounded-2xl pt-3 pb-3 px-3 sm:pt-4 sm:pb-4 sm:px-4 shadow-lg pointer-events-auto flex flex-col h-40 sm:h-44">
+            <h3 className="text-gray-700 text-xs sm:text-sm font-medium mb-2 sm:mb-3">Things I have worked on</h3>
 
             <div className="flex-1"></div>
 
-            <div className="flex items-center gap-2 mb-2">
-              <div className="flex items-center gap-2 bg-gray-200 rounded-full px-4 py-2">
+            <div className="flex items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
+              <div className="flex items-center gap-1.5 sm:gap-2 bg-gray-200 rounded-full px-3 py-1.5 sm:px-4 sm:py-2">
                 <svg
-                  width="16"
-                  height="16"
+                  width="14"
+                  height="14"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="text-gray-600"
+                  className="text-gray-600 sm:w-4 sm:h-4"
                 >
                   <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                <span className="text-gray-900 font-medium text-base">From Kolkata, WB</span>
+                <span className="text-gray-900 font-medium text-sm sm:text-base">From Kolkata, WB</span>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 flex-wrap">
-              <div className="flex items-center gap-2 bg-gray-200 rounded-full px-4 py-2">
+            <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+              <div className="flex items-center gap-1.5 sm:gap-2 bg-gray-200 rounded-full px-3 py-1.5 sm:px-4 sm:py-2">
                 <svg
-                  width="16"
-                  height="16"
+                  width="14"
+                  height="14"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="text-gray-600"
+                  className="text-gray-600 sm:w-4 sm:h-4"
                 >
                   <rect x="3" y="3" width="18" height="18" rx="2" />
                   <path d="M3 9h18" />
                   <path d="M9 21V9" />
                 </svg>
-                <span className="text-gray-700 text-base font-medium">Full-Stack</span>
+                <span className="text-gray-700 text-sm sm:text-base font-medium">Full-Stack</span>
               </div>
-              <div className="flex items-center gap-2 bg-gray-200 rounded-full px-4 py-2">
+              <div className="flex items-center gap-1.5 sm:gap-2 bg-gray-200 rounded-full px-3 py-1.5 sm:px-4 sm:py-2">
                 <svg
-                  width="16"
-                  height="16"
+                  width="14"
+                  height="14"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="text-gray-600"
+                  className="text-gray-600 sm:w-4 sm:h-4"
                 >
                   <line x1="12" y1="2" x2="12" y2="22" />
                   <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
                 </svg>
-                <span className="text-gray-700 font-medium text-base">Web3</span>
+                <span className="text-gray-700 font-medium text-sm sm:text-base">Web3</span>
               </div>
-              <div className="bg-gray-200 rounded-full px-4 py-2">
-                <span className="text-gray-700 font-medium text-base">+5</span>
+              <div className="bg-gray-200 rounded-full px-3 py-1.5 sm:px-4 sm:py-2">
+                <span className="text-gray-700 font-medium text-sm sm:text-base">+5</span>
               </div>
             </div>
           </div>
@@ -338,7 +340,7 @@ export default function MarketCard({ marketName, onSwipeComplete, hasSwipedThisR
         {/* Bottom Navigation Spacer */}
         <div
           style={{
-            height: 'calc(5.5rem + env(safe-area-inset-bottom, 0px))',
+            height: 'calc(4.5rem + env(safe-area-inset-bottom, 0px))',
           }}
         />
           </div>
