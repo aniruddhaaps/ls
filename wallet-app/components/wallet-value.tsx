@@ -92,11 +92,9 @@ export default function WalletValue() {
         <>
           {/* Fixed Header - Always on top */}
           <div
-            className="absolute z-50 flex items-center justify-between pointer-events-none"
+            className="absolute z-50 flex items-center justify-between pointer-events-none left-8 right-7 sm:left-12 sm:right-11"
             style={{
               top: 'calc(3.2rem + env(safe-area-inset-top, 0px))',
-              left: '3rem',
-              right: '2.7rem',
             }}
           >
             <div className="pointer-events-auto">

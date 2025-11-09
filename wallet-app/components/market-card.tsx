@@ -19,11 +19,26 @@ export default function MarketCard({ marketName, onSwipeComplete, hasSwipedThisR
   const [isDragging, setIsDragging] = useState(false)
   const [rotation, setRotation] = useState(0)
   const [isMagnetized, setIsMagnetized] = useState(false)
+  const [showRotateHint, setShowRotateHint] = useState(false)
   const dragStartX = useRef(0)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const audioContextRef = useRef<AudioContext | null>(null)
   const gainNodeRef = useRef<GainNode | null>(null)
   const sourceNodeRef = useRef<MediaElementAudioSourceNode | null>(null)
+
+  useEffect(() => {
+    // Show rotation hint for video on mobile
+    if (marketName === "BNB" && typeof window !== 'undefined') {
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768
+      if (isMobile) {
+        setShowRotateHint(true)
+        const timer = setTimeout(() => {
+          setShowRotateHint(false)
+        }, 3000)
+        return () => clearTimeout(timer)
+      }
+    }
+  }, [marketName])
 
   useEffect(() => {
     // Initialize audio on client side with mobile-friendly settings and volume boost
@@ -143,7 +158,7 @@ export default function MarketCard({ marketName, onSwipeComplete, hasSwipedThisR
   const iconScale = Math.min(Math.abs(dragOffset) / 80, 1)
 
   return (
-    <div className="relative h-full w-full overflow-hidden select-none">
+    <div className="relative h-full w-full overflow-hidden select-none" style={{ userSelect: 'none', WebkitUserSelect: 'none' }}>
       {/* Swipe Feedback Icons */}
       {dragOffset > 0 && (
         <div
@@ -216,13 +231,40 @@ export default function MarketCard({ marketName, onSwipeComplete, hasSwipedThisR
 
         {/* Image Area */}
         <div className="flex-1 mb-1 sm:mb-1.5 relative overflow-hidden rounded-2xl sm:rounded-3xl">
-          <Image
-            src="/image.png"
-            alt="Profile"
-            fill
-            className="object-cover"
-            priority
-          />
+          {marketName === "BNB" ? (
+            <>
+              <video
+                src="/blockrooms.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                draggable={false}
+              />
+              {/* Rotation Hint Overlay */}
+              {showRotateHint && (
+                <div className="absolute inset-0 bg-black bg-opacity-80 flex items-center justify-center z-20 pointer-events-none">
+                  <Image
+                    src="/icons/rotated.png"
+                    alt="Rotate device"
+                    width={60}
+                    height={60}
+                    className="animate-pulse"
+                  />
+                </div>
+              )}
+            </>
+          ) : (
+            <Image
+              src="/image.png"
+              alt="Profile"
+              fill
+              className="object-cover pointer-events-none"
+              priority
+              draggable={false}
+            />
+          )}
           {/* Verified Badge Overlay - Above white tab */}
           <div className="absolute bottom-[14rem] left-3 sm:left-4 md:left-6 right-3 sm:right-4 md:right-6 flex flex-col gap-2 sm:gap-3 pointer-events-none">
             <VerifiedBadge />
