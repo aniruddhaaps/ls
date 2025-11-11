@@ -60,14 +60,13 @@ suhas this side, based out of kolkata, knows typescript, react, nextjs, full sta
 
       {/* Resume Popup */}
       {showResumePopup && (
-        <div
-          className="bg-yellow-400 rounded-2xl p-6 shadow-lg cursor-pointer hover:bg-yellow-500 transition"
+        <a
+          href="https://drive.google.com/file/d/1TzQxtHVeahIFsDyqUEeUTr3nAjG1vINH/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block bg-yellow-400 rounded-2xl p-6 shadow-lg cursor-pointer hover:bg-yellow-500 transition"
           style={{
             animation: 'slideUp 0.5s ease-out',
-          }}
-          onClick={() => {
-            // Add resume download or view logic here
-            console.log("Resume clicked")
           }}
         >
           <div className="flex items-center justify-between">
@@ -95,7 +94,7 @@ suhas this side, based out of kolkata, knows typescript, react, nextjs, full sta
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
           </div>
-        </div>
+        </a>
       )}
 
       {/* Bottom Navigation Spacer */}
