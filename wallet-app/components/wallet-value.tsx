@@ -6,6 +6,7 @@ import Profile from "./profile"
 import { useRef, useEffect, useState } from "react"
 import { ChevronUp, ChevronDown, Search, Bell } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function WalletValue() {
   const markets = ["ETH", "BNB"]
@@ -16,6 +17,7 @@ export default function WalletValue() {
   const [commitDirection, setCommitDirection] = useState<"up" | "down">("up")
   const [currentPage, setCurrentPage] = useState<"markets" | "profile">("markets")
   const [swipedMarkets, setSwipedMarkets] = useState<Set<string>>(new Set())
+  const [currentSwipedMarket, setCurrentSwipedMarket] = useState<string>("")
 
   useEffect(() => {
     // Detect if device is mobile
@@ -70,6 +72,7 @@ export default function WalletValue() {
 
   const handleSwipeComplete = (direction: "up" | "down", marketName: string) => {
     setCommitDirection(direction)
+    setCurrentSwipedMarket(marketName)
     setShowCommitPopup(true)
     // Mark this market as swiped for this round
     setSwipedMarkets(prev => new Set(prev).add(marketName))
@@ -119,7 +122,7 @@ export default function WalletValue() {
           scrollSnapStop: 'always',
         }}
       >
-        {markets.map((market) => (
+        {markets.map((market, index) => (
           <div
             key={market}
             className="h-full w-full snap-start snap-always flex-shrink-0"
@@ -133,6 +136,8 @@ export default function WalletValue() {
               onSwipeComplete={handleSwipeComplete}
               hasSwipedThisRound={swipedMarkets.has(market)}
               onTimerReset={handleTimerReset}
+              pageType="root"
+              isActive={currentIndex === index}
             />
           </div>
         ))}
@@ -168,6 +173,8 @@ export default function WalletValue() {
             <CommitPopup
               direction={commitDirection}
               onConfirm={handleCommitConfirm}
+              marketName={currentSwipedMarket}
+              pageType="root"
             />
           )}
         </>
@@ -214,15 +221,15 @@ export default function WalletValue() {
             }`}
           />
         </button>
-        <button className="p-3 sm:p-4 hover:bg-gray-100 rounded-full transition">
+        <Link href="/creative" className="p-3 sm:p-4 hover:bg-gray-100 rounded-full transition">
           <Image
             src="/icons/transaction-history.svg"
-            alt="History"
+            alt="Creative"
             width={40}
             height={40}
             className="w-8 h-8 sm:w-10 sm:h-10 [filter:brightness(0)_saturate(100%)_invert(45%)_sepia(0%)_saturate(0%)_hue-rotate(0deg)_brightness(95%)_contrast(92%)]"
           />
-        </button>
+        </Link>
         <button className="p-3 sm:p-4 hover:bg-gray-100 rounded-full transition">
           <Image
             src="/icons/brain-02.svg"
