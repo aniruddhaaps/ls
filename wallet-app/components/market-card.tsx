@@ -289,11 +289,11 @@ export default function MarketCard({ marketName, onSwipeComplete, hasSwipedThisR
                 ref={localVideoRef}
                 src={
                   pageType === "creative"
-                    ? marketName === "ETH" ? "/suh done (1).mp4"
-                    : marketName === "BNB" ? "/blocktwitter.mp4"
-                    : marketName === "STRK" ? "/block2.mp4"
-                    : "/drivewala (1).mp4"
-                    : "/blockrooms.mp4"
+                    ? marketName === "ETH" ? "https://3vttymersn3cbaps.public.blob.vercel-storage.com/suh%20done%20%281%29.mp4"
+                    : marketName === "BNB" ? "https://3vttymersn3cbaps.public.blob.vercel-storage.com/blocktwitter.mp4"
+                    : marketName === "STRK" ? "https://3vttymersn3cbaps.public.blob.vercel-storage.com/block2.mp4"
+                    : "https://3vttymersn3cbaps.public.blob.vercel-storage.com/drivewala%20%281%29.mp4"
+                    : "https://3vttymersn3cbaps.public.blob.vercel-storage.com/blockrooms.mp4"
                 }
                 autoPlay
                 loop
